@@ -153,26 +153,22 @@ namespace MyFirstAccessory.NPCs.expMob1
 }
 
 
-// public override void OnHitByItem(Player player, Item item, NPC.HitInfo hit, int damageDone) {
-//     // 플레이어가 나를 때리는 순간, 기존에 누구를 쫓고 있었든 상관없이 
-//     // revengeTargetIndex를 '방금 나를 때린 놈'의 번호로 덮어씌웁니다.
-//     // revengeTargetIndex = player.whoAmI;
-//     // targetIsPlayer = true;
-// }
+public override void OnHitByItem(Player player, Item item, NPC.HitInfo hit, int damageDone) {
+    // 플레이어가 나를 때리는 순간, 기존에 누구를 쫓고 있었든 상관없이 
+    // revengeTargetIndex를 '방금 나를 때린 놈'의 번호로 덮어씌웁니다.
+    revengeTargetIndex = player.whoAmI;
+    targetIsPlayer = true;
+}
 
-//         public override void OnHitByProjectile(Projectile projectile, NPC.HitInfo hit, int damageDone) {
-//             //Main.NewText($"투사체에 맞음! 투사체 이름: {projectile.Name}, 데미지: {damageDone}");
-//             // if (projectile.owner >= 0 && projectile.owner < 255) {
-//             //     revengeTargetIndex = projectile.owner;
-//             //     targetIsPlayer = true;
-//             // }
-//         }
+        public override void OnHitByProjectile(Projectile projectile, NPC.HitInfo hit, int damageDone) {
+            Main.NewText($"투사체에 맞음! 투사체 이름: {projectile.Name}, 데미지: {damageDone}");
+            if (projectile.owner >= 0 && projectile.owner < 255) {
+                revengeTargetIndex = projectile.owner;
+                targetIsPlayer = true;
+            }
+        }
 
-        // 플레이어가 아이템(칼 등)으로 때릴 때 - 무시하도록 비워둠
-public override void OnHitByItem(Player player, Item item, NPC.HitInfo hit, int damageDone) { }
 
-// 플레이어가 쏜 투사체에 맞을 때 - 무시하도록 비워둠
-public override void OnHitByProjectile(Projectile projectile, NPC.HitInfo hit, int damageDone) { }
 
 
 
