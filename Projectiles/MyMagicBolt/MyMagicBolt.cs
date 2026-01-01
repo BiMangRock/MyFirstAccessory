@@ -1,47 +1,59 @@
-using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework; // Vector2를 위해 필요
+using Microsoft.Xna.Framework.Graphics; // Texture2D, SpriteEffects를 위해 필요
+using Terraria; // Main, Projectile을 위해 필요
+using Terraria.GameContent; // TextureAssets를 위해 필요
+using Terraria.ID; // DustID 등을 위해 필요
+using Terraria.ModLoader; // ModProjectile을 위해 필요
 
-namespace MyFirstAccessory.Projectiles
+namespace MyFirstAccessory.Projectiles.MyMagicBolt
 {
     public class MyMagicBolt : ModProjectile
     {
         public override void SetDefaults() {
-            Projectile.width = 16;       // 투사체 크기
+            Projectile.width = 16;
             Projectile.height = 16;
-            Projectile.friendly = true;  // 플레이어 편
+            Projectile.friendly = true;
             Projectile.DamageType = DamageClass.Magic;
-            Projectile.timeLeft = 300;   // 5초 후 소멸
-            Projectile.ignoreWater = true;
-            Projectile.tileCollide = true; // 벽에 닿으면 터짐
+            Projectile.timeLeft = 300;
+            Projectile.tileCollide = true;
         }
 
         public override void AI() {
-            // 1. 투사체가 날아가는 방향으로 자동 회전
+            // PNG가 위를 보고 있다면 + MathHelper.PiOver2 유지
             Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.PiOver2;
 
-            // 2. 파편(Dust) 효과 넣기 (이게 그래픽의 핵심!)
-            // 매 프레임마다 70% 확률로 파편 생성
-            if (Main.rand.NextFloat() < 0.7f) {
-                Dust dust = Dust.NewDustPerfect(
-                    Projectile.Center,           // 파편 생성 위치
-                    DustID.PurpleCrystalShard,   // 파편 종류 (보라색 보석 파편)
-                    Projectile.velocity * -0.5f, // 날아가는 반대 방향으로 퍼짐
-                    150,                         // 투명도
-                    Color.Purple,                // 색상
-                    1.2f                         // 크기
-                );
-                dust.noGravity = true;           // 중력 무시
-                dust.velocity *= 0.5f;           // 파편이 너무 멀리 안 퍼지게
+            if (Main.rand.NextBool(2)) {
+                // 파편은 항상 투사체 중심(Center)에서 생성
+                Dust d = Dust.NewDustPerfect(Projectile.Center, DustID.PurpleCrystalShard, Vector2.Zero);
+                d.noGravity = true;
             }
         }
 
-        // 벽에 부딪혀 터질 때 효과
-        public override void OnKill(int timeLeft) {
-            for (int i = 0; i < 10; i++) {
-                Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.PurpleCrystalShard);
-            }
+        public override bool PreDraw(ref Color lightColor) {
+            // 1. TextureAssets는 Terraria.GameContent에 들어있습니다.
+            // .Value를 붙여야 Asset에서 실제 Texture2D를 꺼냅니다.
+            Texture2D texture = TextureAssets.Projectile[Projectile.type].Value;
+
+            // 2. Width와 Height 뒤에 괄호()를 제거했습니다 (속성값 사용).
+            Vector2 drawOrigin = new Vector2(texture.Width * 0.5f, texture.Height * 0.5f);
+
+            // 3. 그릴 위치 (화면 좌표 계산)
+            Vector2 drawPos = Projectile.Center - Main.screenPosition + new Vector2(0f, Projectile.gfxOffY);
+
+            // 4. SpriteEffects는 Microsoft.Xna.Framework.Graphics에 들어있습니다.
+            Main.EntitySpriteDraw(
+                texture, 
+                drawPos, 
+                null, 
+                lightColor, 
+                Projectile.rotation, 
+                drawOrigin, 
+                Projectile.scale, 
+                SpriteEffects.None, 
+                0
+            );
+
+            return false; // 기본 그리기를 끄고 중심점이 보정된 코드로 직접 그림
         }
     }
 }

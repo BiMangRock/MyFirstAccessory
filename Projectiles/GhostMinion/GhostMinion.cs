@@ -4,7 +4,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 
-namespace MyFirstAccessory.Projectiles
+namespace MyFirstAccessory.Projectiles.GhostMinion
 {
     public class GhostMinion : ModProjectile
     {

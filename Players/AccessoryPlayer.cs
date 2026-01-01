@@ -4,7 +4,7 @@ using Terraria;
 using Terraria.DataStructures;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO; // SaveData와 LoadData를 위해 필요합니다.
-using MyFirstAccessory.Items;
+using MyFirstAccessory.Items.GrowthCharm;
 
 namespace MyFirstAccessory.Players
 {

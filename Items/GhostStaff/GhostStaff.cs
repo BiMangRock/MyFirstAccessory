@@ -4,10 +4,10 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.DataStructures;
 using MyFirstAccessory.Buffs;
-using MyFirstAccessory.Projectiles;
+using MyFirstAccessory.Projectiles.GhostMinion;
 using Microsoft.Xna.Framework;
 
-namespace MyFirstAccessory.Items
+namespace MyFirstAccessory.Items.GhostStaff
 {
     public class GhostStaff : ModItem
     {

@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 using Terraria.ObjectData;
 using Terraria.DataStructures;
 using Microsoft.Xna.Framework;
-using MyFirstAccessory.Items;
+using MyFirstAccessory.Items.ModdersDeskItem;
 
 namespace MyFirstAccessory.Tiles
 {

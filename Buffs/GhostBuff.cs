@@ -1,7 +1,7 @@
 // Buffs/GhostBuff.cs
 using Terraria;
 using Terraria.ModLoader;
-using MyFirstAccessory.Projectiles;
+using MyFirstAccessory.Projectiles.GhostMinion;
 
 namespace MyFirstAccessory.Buffs
 {

@@ -4,9 +4,9 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.DataStructures;
 using Microsoft.Xna.Framework;
-using MyFirstAccessory.Projectiles; // YellowPixel을 사용하기 위해 추가
+using MyFirstAccessory.Projectiles.YellowPixel; // YellowPixel을 사용하기 위해 추가
 
-namespace MyFirstAccessory.Items
+namespace MyFirstAccessory.Items.PredictionStaff
 {
     // 이것은 GhostStaff와 아무 상관이 없는, 완전히 새로운 아이템입니다.
     public class PredictionStaff : ModItem

@@ -8,7 +8,7 @@ using Terraria.Localization; // TooltipLine을 위해 필요합니다.
 using Microsoft.Xna.Framework; // Color를 사용하기 위해 필요합니다.
 using MyFirstAccessory.Players; // [수정] AccessoryPlayer를 찾기 위해 반드시 필요합니다!
 
-namespace MyFirstAccessory.Items
+namespace MyFirstAccessory.Items.GrowthCharm
 {
     public class GrowthCharm : ModItem
     {

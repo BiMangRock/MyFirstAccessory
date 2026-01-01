@@ -4,7 +4,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using MyFirstAccessory.Tiles; // 우리가 만들 타일 파일의 위치를 알려줌
 
-namespace MyFirstAccessory.Items
+namespace MyFirstAccessory.Items.ModdersDeskItem
 {
     public class ModdersDeskItem : ModItem
     {

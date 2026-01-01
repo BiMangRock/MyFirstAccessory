@@ -4,7 +4,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 
-namespace MyFirstAccessory.Projectiles
+namespace MyFirstAccessory.Projectiles.YellowPixel
 {
     // 이것은 GhostMinion과 아무 상관이 없는, 완전히 새로운 발사체입니다.
     public class YellowPixel : ModProjectile

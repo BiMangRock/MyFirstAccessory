@@ -4,7 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace MyFirstAccessory.Items
+namespace MyFirstAccessory.Items.MightyRing
 {
     public class MightyRing : ModItem
     {
@@ -26,11 +26,8 @@ namespace MyFirstAccessory.Items
         // [제작법] 철 주괴 5개로 작업대에서 제작
         public override void AddRecipes()
         {
-            // CreateRecipe()
-            //     .AddIngredient(ItemID.IronBar, 5)
-            //     .AddTile(TileID.WorkBenches)
-            //     .Register();
-                        CreateRecipe()
+ 
+                CreateRecipe()
                 .AddIngredient(ItemID.Wood, 1)
                 .AddTile(TileID.WorkBenches)
                 .Register();
