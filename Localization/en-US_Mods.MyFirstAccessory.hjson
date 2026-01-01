@@ -78,3 +78,5 @@ Projectiles: {
 	YellowPixel.DisplayName: Yellow Pixel
 	MyMagicBolt.DisplayName: My Magic Bolt
 }
+
+NPCs.expMob1.DisplayName: exp Mob1

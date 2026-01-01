@@ -16,6 +16,9 @@ namespace MyFirstAccessory.Projectiles.MyMagicBolt
             Projectile.DamageType = DamageClass.Magic;
             Projectile.timeLeft = 300;
             Projectile.tileCollide = true;
+            Projectile.friendly = true;  // NPC들을 공격하기 위해 true 유지
+    Projectile.hostile = true;   // 플레이어를 공격하기 위해 true 추가!!
+
         }
 
         public override void AI() {
@@ -28,6 +31,25 @@ namespace MyFirstAccessory.Projectiles.MyMagicBolt
                 d.noGravity = true;
             }
         }
+                    // MyMagicBolt.cs 파일 내부에 아래 메소드를 통째로 복사해서 넣으세요.
+            // (SetDefaults나 AI 메소드 아래에 넣으면 됩니다.)
+
+            public override bool? CanHitNPC(NPC target) {
+                // Projectile.ai[0]에는 아까 우리가 저장한 상인의 번호(NPC.whoAmI)가 들어있습니다.
+                // 만약 부딪힌 NPC(target)의 번호가 내 주인(ai[0])과 같다면?
+                if (target.whoAmI == (int)Projectile.ai[0]) {
+                    return false; // 공격하지 마라 (통과해라)
+                }
+                
+                // 그 외의 NPC들은 정상적으로 맞음
+                return null; 
+            }
+
+            // 플레이어는 주인일 리가 없으므로 항상 맞게 설정 (로그 상 0번 타겟 공격용)
+            public override bool CanHitPlayer(Player target) {
+                return true; 
+            }
+
 
         public override bool PreDraw(ref Color lightColor) {
             // 1. TextureAssets는 Terraria.GameContent에 들어있습니다.
