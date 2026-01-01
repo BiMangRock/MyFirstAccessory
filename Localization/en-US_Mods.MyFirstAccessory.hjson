@@ -1,0 +1,74 @@
+Mods: {
+	MyFirstAccessory: {
+		Items: {
+			GrowthCharm: {
+				DisplayName: 성장의 부적
+				Tooltip: 적을 처치할 때마다 최대 체력이 1 증가합니다.
+			}
+
+			ModdersDeskItem: {
+				DisplayName: 모드 개발자의 책상
+				Tooltip: 장식용 가구입니다.
+			}
+
+			// [추가] 고스트 지팡이 아이템 정보
+			GhostStaff: {
+				DisplayName: 고스트 지팡이
+				Tooltip: 꼬마 유령을 소환하여 당신을 위해 싸우게 합니다.
+			}
+		}
+
+		Tiles.ModdersDesk.MapEntry: 모드 개발자의 책상
+
+		// [추가] 버프 정보
+		Buffs: {
+			GhostBuff: {
+				DisplayName: 꼬마 유령
+				Description: 꼬마 유령이 당신을 위해 싸웁니다.
+			}
+		}
+
+		Projectiles.GhostMinion.DisplayName: 꼬마 유령
+	}
+}
+
+Tiles.ModdersDesk.MapEntry: Modders Desk
+
+Buffs: {
+	GhostBuff: {
+		DisplayName: Ghost Buff
+		Description: Mods.MyFirstAccessory.Buffs.GhostBuff.Description
+	}
+}
+
+Items: {
+	GhostStaff: {
+		DisplayName: Ghost Staff
+		Tooltip: ""
+	}
+
+	GrowthCharm: {
+		DisplayName: Growth Charm
+		Tooltip: ""
+	}
+
+	MightyRing: {
+		DisplayName: Mighty Ring
+		Tooltip: ""
+	}
+
+	ModdersDeskItem: {
+		DisplayName: Modders Desk Item
+		Tooltip: ""
+	}
+
+	PredictionStaff: {
+		DisplayName: Prediction Staff
+		Tooltip: ""
+	}
+}
+
+Projectiles: {
+	GhostMinion.DisplayName: Ghost Minion
+	YellowPixel.DisplayName: Yellow Pixel
+}
